@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>项目</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- Demo styles -->
+    <!-- Link bootstrap's CSS JS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/lyb.js"></script>
+    <!-- Demo styles -->
+
+
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide img{
+        width: 100%;
+        height: 100%;
+    }
+    .navbar .active{
+        border-bottom: 2px solid blue;
+    }
+    .background1{
+        background: url(img/4.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    .background2{
+        background: url(http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/06/01/ChMkJ1cY5TaIFCB0AAYcLTbB2YMAAQWxQHcPhUABhxF378.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    input{
+        width: 100px;
+        height: 50px;
+    }
+    body,div,h2,h3,ul,li,p{margin:0;padding:0;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+ul{list-style-type:none;}
+body{color:#333;background:#a7ab8c;font:12px/1.5 \5b8b\4f53;}
+#msgBox{width:500px;background:#fff;border-radius:5px;margin:10px auto;padding-top:10px;}
+#msgBox form h2{font-weight:400;font:400 18px/1.5 \5fae\8f6f\96c5\9ed1;}
+#msgBox form{background:url(img/boxBG.jpg) repeat-x 0 bottom;padding:0 20px 15px;}
+#userName,#conBox{color:#777;border:1px solid #d0d0d0;border-radius:6px;background:#fff url(img/inputBG.png) repeat-x;padding:3px 5px;font:14px/1.5 arial;}
+#userName.active,#conBox.active{border:1px solid #7abb2c;}
+#userName{height:20px;}
+#conBox{width:448px;resize:none;height:65px;overflow:auto;}
+#msgBox form div{position:relative;color:#999;margin-top:10px;}
+#msgBox img{border-radius:3px;}
+#face{position:absolute;top:0;left:172px;}
+#face img{width:30px;height:30px;cursor:pointer;margin-right:6px;opacity:0.5;filter:alpha(opacity=50);}
+#face img.hover,#face img.current{width:28px;height:28px;border:1px solid #f60;opacity:1;filter:alpha(opacity=100);}
+#sendBtn{border:0;width:112px;height:30px;cursor:pointer;margin-left:10px;background:url(img/btn.png) no-repeat;}
+#sendBtn.hover{background-position:0 -30px;}
+#msgBox form .maxNum{font:26px/30px Georgia, Tahoma, Arial;padding:0 5px;}
+#msgBox .list{padding:10px;}
+#msgBox .list h3{position:relative;height:33px;font-size:14px;font-weight:400;background:#e3eaec;border:1px solid #dee4e7;}
+#msgBox .list h3 span{position:absolute;left:6px;top:6px;background:#fff;line-height:28px;display:inline-block;padding:0 15px;}
+#msgBox .list ul{overflow:hidden;zoom:1;}
+#msgBox .list ul li{float:left;clear:both;width:100%;border-bottom:1px dashed #d8d8d8;padding:10px 0;background:#fff;overflow:hidden;}
+#msgBox .list ul li.hover{background:#f5f5f5;}
+#msgBox .list .userPic{float:left;width:50px;height:50px;display:inline;margin-left:10px;border:1px solid #ccc;border-radius:3px;}
+#msgBox .list .content{float:left;width:400px;font-size:14px;margin-left:10px;font-family:arial;word-wrap:break-word;position: relative;}
+#msgBox .list .userName{display:inline;padding-right:5px;}
+#msgBox .list .userName a{color:#2b4a78; position: absolute;left: 0}
+#msgBox .list .msgInfo{display:inline;word-wrap:break-word;}
+#msgBox .list .times{color:#889db6;font:12px/18px arial;margin-top:5px;overflow:hidden;zoom:1;}
+#msgBox .list .times span{float:left;}
+#msgBox .list .times a{float:right;color:#889db6;display:none;}
+.tr{overflow:hidden;zoom:1;}
+.tr p{float:right;line-height:30px;}
+.tr *{float:left;}
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background: rgba(0,0,0,0.2);">
+        <div class="container" style="background: rgba(0,0,0,0)">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding: 0;margin:0;"><img src="img/5.png" style="height: 30px;margin-top: 10px;"></a>
+            </div>
+            <div class="navbar-collapse collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right" id="the">
+                    <li class="active"><a href="#a" style="font-size: 18px;background: brown">主页</a></li>
+                    <li><a href="#" style="font-size: 18px;">设计</a></li>
+                    <li><a href="#" style="font-size: 18px;">个人空间</a></li>
+                    <li><a href="demo.html" style="font-size: 18px;">登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-container" id="swiper-container1" style="height: 960px;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="a">
+                <div class="container background1">
+                    <input type="button" name="" value="进入设计" class=" btn btn-primary" style="position: absolute;top:50%">
+                </div>   
+            </div>
+            <div class="swiper-slide">
+                <div class="container background2">
+                    <div class ="swiper-container" id="swiper-container2"
+                     style="width:84%; height: 37%;margin-top: 60px;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="img/1.jpg"></div>
+                            <div class="swiper-slide"><img src="img/2.jpg"></div>
+                            <div class="swiper-slide"><img src="img/3.jpg"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div style=" width:84%;margin-left: 8%;margin-top: 20px;">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#a1" data-toggle="tab">介绍</a></li>
+                            <li><a href="#b1" data-toggle="tab">简历</a></li>
+                            <li><a href="#c1" data-toggle="tab">个人简历</a></li>
+                        </ul>
+                        <ul class="tab-content" style="padding: 0;">
+                            <li id="a1" class="tab-pane active">
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper is not compatible with all platforms, it is a modern touch slider which is focused only on modern apps/platforms to bring the best experience and simplicity.
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper, along with other great components, is a part of Framework7 - full featured framework for building iOS & Android apps. Swiper is also a default slider component in Ionic Framework
+                                </p>
+                            </li>
+                            <li id="b1" class="tab-pane">
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper is not compatible with all platforms, it is a modern touch slider which is focused only on modern apps/platforms to bring the best experience and simplicity.
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper, along with other great components, is a part of Framework7 - full featured framework for building iOS & Android apps. Swiper is also a default slider component in Ionic Framework
+                                </p>
+                            </li>
+                            <li id="c1" class="tab-pane">
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper is not compatible with all platforms, it is a modern touch slider which is focused only on modern apps/platforms to bring the best experience and simplicity.
+                                </p>
+                                <p style="line-height:40px;text-indent:25px;">
+                                    Swiper, along with other great components, is a part of Framework7 - full featured framework for building iOS & Android apps. Swiper is also a default slider component in Ionic Framework
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            <div class="swiper-slide">
+                <div id="msgBox">
+                    <form>
+                        <h2 style="position: relative;top: -27px;">来 , 说说你在做什么 , 想什么</h2>
+
+                        <div style="top: -30px; position: relative;">
+                            <input id="userName" class="f-text" value="" style="position: absolute;left: 8px;">
+                            <p id="face" style="z-index: 10;"><img src="img/face1.gif" class="current"><img src="img/face2.gif"><img src="img/face3.gif"><img src="img/face4.gif"><img src="img/face5.gif"><img src="img/face6.gif"><img src="img/face7.gif"><img src="img/face8.gif"></p>
+                        </div>
+                        <div><textarea id="conBox" class="f-text"></textarea></div>
+                        <div class="tr">
+                            <p>
+                                <span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+
+                                <input id="sendBtn" type="button" value="" title="快捷键 Ctrl+Enter">
+                            </p>
+                        </div>
+                    </form>
+                    <div class="list">
+                        <h3><span>大家在说</span></h3>
+                        <ul>
+                            <li>
+                                <div class="userPic"><img src="img/face.gif"></div>
+                                <div class="content">
+                                    <div class="userName"><a href="javascript:;">永不上线</a>:</div>
+                                    <div class="msgInfo">新增删除广播功能。</div>
+                                    <div class="times"><span>07月05日 15:14</span><a class="del" href="javascript:;">删除</a></div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var cUl = document.getElementById('the');
+    var mLi = cUl.getElementsByTagName('li');
+    var  aa = '';
+    for (var i = 0; i < mLi.length; i++) {
+                mLi[i].index=i;
+                mLi[i].onclick = function(swiper1){
+                    // alert(1)
+                    for (var i = 0; i < mLi.length; i++) {
+                        mLi[i].firstChild.style.background = '';
+                        mLi[i].setAttribute('class','');
+                        }
+                    this.setAttribute('class','active');
+                    this.firstChild.style.background = 'brown';
+                }
+            }
+    var swiper1 = new Swiper('#swiper-container1', {
+        effect : 'cube',
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        mousewheelControl: true,
+        watchSlidesProgress : true,
+        watchSlidesVisibility : true,
+        onSlideChangeStart: function(swiper){
+            aa=swiper.activeIndex;
+            for (var i = 0; i < mLi.length; i++) {
+                mLi[i].firstChild.style.background = '';
+                mLi[i].setAttribute('class','');
+                }
+            mLi[aa].setAttribute('class','active');
+            mLi[aa].firstChild.style.background = 'brown';
+            
+        }
+    });
+    var swiper2 = new Swiper('#swiper-container2', {
+        effect : 'coverflow',
+        loop : true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        autoplay : 1000,
+    });
+    
+    </script>
+</body>
+</html>
